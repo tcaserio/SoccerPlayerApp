@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SoccerProject.Views.AboutPage"
+             xmlns:vm="clr-namespace:SoccerProject.ViewModels"
+             Title="Player Time Tracker">
+    
+    <ContentPage.BindingContext>
+        <vm:AboutViewModel />
+    </ContentPage.BindingContext>
+    
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Color x:Key="Accent">#96d1ff</Color>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <Grid BackgroundColor="#c2ddfc">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <StackLayout Grid.Row="0">
+            
+        </StackLayout>
+        <StackLayout Grid.Column="0" BackgroundColor="#072a91" VerticalOptions="FillAndExpand" HorizontalOptions="Fill">
+            <StackLayout Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="Center">
+                <Label x:Name="lblGameTime" Text="Game Time: 00:00" FontAttributes="Bold" TextColor="White" FontSize="42" VerticalTextAlignment="Start" Padding="0,10,0,0">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
+                    </Label.GestureRecognizers>
+                </Label>
+            </StackLayout>
+            <Label x:Name="lblGameHalf" Text="Half 1" FontAttributes="Bold" TextColor="White" FontSize="24" VerticalTextAlignment="Center" HorizontalOptions="Center" Padding="0, 0, 10, 20"/>
+        </StackLayout>
+        <Grid x:Name="gridPlayerInfo" Grid.Row="1" Margin="5,5,5,5">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Label Text="Player" TextColor="Black" FontSize="18" FontAttributes="Bold" Grid.Column="0" HorizontalTextAlignment="Start" HorizontalOptions="Center"/>
+            <Label Text="Progress" TextColor="Black" FontSize="18" FontAttributes="Bold" Grid.Column="1" HorizontalTextAlignment="Center" HorizontalOptions="Center"/>
+            <Label Text="On Field" TextColor="Black" FontSize="18" FontAttributes="Bold" Grid.Column="2" HorizontalTextAlignment="End" HorizontalOptions="Center"/>
+
+        </Grid>
+        <StackLayout Orientation="Horizontal" Grid.Row="2" Opacity=".80" Padding="10">
+            <Button x:Name="lblAddPlayer" TextColor="White" CornerRadius="20" FontSize="18" Text="Add" VerticalOptions="Start" HorizontalOptions="Start" Pressed="lblAddPlayer_Pressed"/>
+            <Button x:Name="lblRemovePlayer" TextColor="White" CornerRadius="20" FontSize="18" Text="Remove" VerticalOptions="Start" HorizontalOptions="CenterAndExpand" IsEnabled="False" Pressed="lblRemovePlayer_Pressed"/>
+            <Button x:Name="lblClearPlayers" TextColor="White" CornerRadius="20" FontSize="18" Text="Clear" VerticalOptions="Start" HorizontalOptions="Start" Pressed="lblClearPlayers_Pressed"/>
+            <Button x:Name="btnReset" TextColor="White" CornerRadius="20" FontSize="18" Text="Reset" VerticalOptions="Start" HorizontalOptions="Start" Pressed="btnReset_Pressed"/>
+        </StackLayout>
+        <Button x:Name="btnTimer" FontSize="32" Grid.Row="3" Text="Start Game Timer" TextColor="White" BackgroundColor="#1d76db" CornerRadius="30" Margin="5,5,5,5" Pressed="btnTimer_Pressed"/>
+    </Grid>
+
+</ContentPage>
